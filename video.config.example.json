@@ -1,0 +1,82 @@
+{
+  "//": "Copy beside your frames and edit. Paths are relative to this file.",
+  "script": "../../VIDEO-SCRIPT.md",
+  "output": "My_Product_Tour.mp4",
+  "frames_dir": "frames",
+  "assets_dir": "assets",
+  "build_dir": "build",
+
+  "//timing": "scene_pad/lead_in are seconds; min_scene floors a fitted scene",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "xfade": 0.5,
+  "lead_in": 0.6,
+  "scene_pad": 2.6,
+  "min_scene": 6.0,
+  "zoom": 1.1,
+  "zoom_card": 1.03,
+
+  "voice": {
+    "windows": "Microsoft Zira Desktop",
+    "rate": -1,
+    "edge": "en-US-AndrewMultilingualNeural",
+    "edge_rate": "-4%"
+  },
+
+  "//speech_fixes": "spoken-only substitutions; captions keep the written form",
+  "speech_fixes": [
+    ["MY_APP", "My App"],
+    ["SLA", "S L A"]
+  ],
+
+  "theme": {
+    "bg": [17, 46, 81],
+    "panel": [0, 63, 114],
+    "accent": [250, 196, 45],
+    "info": [120, 190, 255],
+    "muted": [190, 205, 225]
+  },
+
+  "//scenes": "one entry per scene number; frames are [file, zoomFocusX, zoomFocusY] in 0-1",
+  "scenes": {
+    "1": { "frames": [["01a-hero.png", 0.15, 0.45]] },
+    "2": {
+      "frames": [["02a-overview.png", 0.5, 0.2], ["02b-detail.png", 0.5, 0.4]],
+      "note": "Figures as of Jan 2026 · demo data"
+    },
+    "3": {
+      "frames": [["card-architecture.png", 0.5, 0.5]],
+      "hide_onscreen": false
+    },
+    "4": { "frames": [["card-closing.png", 0.5, 0.5]], "hide_onscreen": true }
+  },
+
+  "//cards": "generated frames drawn by the renderer; boxes are [x,y,w,h,title,sub,accent|info]",
+  "cards": [
+    {
+      "file": "card-architecture.png",
+      "type": "diagram",
+      "title": "How it is built",
+      "subtitle": ["One-line summary of the architecture", "Optional smaller second line"],
+      "boxes": [
+        [90, 430, 330, 170, "Browser", "Single-page app", "accent"],
+        [530, 430, 360, 170, "API", "Auth · rate limits", "accent"],
+        [1000, 430, 380, 170, "Database", "Read-only queries", "info"]
+      ],
+      "arrows": [
+        [420, 515, 525, 515, "HTTPS"],
+        [890, 515, 995, 515, ""]
+      ]
+    },
+    {
+      "file": "card-closing.png",
+      "type": "closing",
+      "logo": "logo.png",
+      "logo_width": 1000,
+      "title": "My Product",
+      "tagline": "One-line value proposition.",
+      "footer": "Team  ·  Organization  ·  Platform"
+    }
+  ]
+}
